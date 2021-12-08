@@ -1,0 +1,92 @@
+/******************************************************************
+
+Stylesheet: 600px以上のタブレットやモニタで適用
+
+******************************************************************/
+
+.flex {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.header {
+    & .logo {
+        font-size: 38px;
+    }
+}
+
+.everyday {
+    &__inner {
+        padding: 50px;
+        background-image: linear-gradient(to top, rgba($cBgGray, 0.5) 0%, rgba($cTeal, .7) 100%);
+        width: 97%;
+        @include p-base(
+            $which: after,
+            $top: 20px,
+            $left: 20px,
+        ) {
+            background-color: $cBgGray;
+            z-index: -2;
+            box-shadow: 15px 15px 25px -10px rgba(0, 0, 0, .5);
+        }
+    }
+
+    &__img,
+    &__texts {
+        flex-basis: 47%;
+        top: 25px;
+    }
+
+    &__texts {
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+.styles {
+    &__inner {
+        justify-content: space-between;
+    }
+
+    &__item {
+        flex-basis: 49%;
+        margin-bottom: 60px;
+    }
+}
+
+.shops {
+    &__inner {
+        @include p-base($which: after) {
+            background-position: bottom 2px right -105px;
+            background-size: 70%;
+        }
+    }
+
+    &__container {
+        justify-content: space-between;
+    }
+
+    &__item {
+        flex-basis: 49%;
+    }
+
+    &__img {
+        height: 15vh;
+    }
+
+}
+
+.footer {
+    & .logo {
+        justify-content: flex-start;
+    }
+
+    &__li {
+        margin-left: 0;
+        margin-right: 30px;
+    }
+
+    &__copyright {
+        margin-top: 0;
+    }
+}

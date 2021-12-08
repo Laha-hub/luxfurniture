@@ -1,0 +1,31 @@
+/******************************************************************
+
+Stylesheet: 1280px以上のモニタで適用
+
+******************************************************************/
+
+.everyday {
+    &__inner {
+        padding: 50px 150px;
+    }
+}
+
+.styles {
+    &__item {
+        flex-basis: 48.5%;
+    }
+}
+
+.shops {
+    &__inner {
+        @include p-base($which: after, $display: none) {}
+    }
+
+    &__item {
+        flex-basis: 23%;
+    }
+}
+
+.side {
+    display: block;
+}

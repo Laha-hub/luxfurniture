@@ -1,0 +1,82 @@
+@import "modules/variables";
+@import "modules/mixin";
+
+body {
+    overflow-y: scroll;
+}
+
+.pace-done #global-container {
+    transition: opacity 1s;
+    opacity: 1;
+}
+
+#global-container {
+    opacity: 0;
+}
+
+.pace {
+    z-index: 2000;
+    position: fixed;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 400px;
+}
+
+.pace .pace-progress {
+    transform: none !important;
+    text-align: center;
+}
+
+.pace .pace-progress:after {
+    content: attr(data-progress-text);
+    display: block;
+    font-weight: 700;
+    font-size: 2em;
+    font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+    color: $cTeal;
+}
+
+.pace.pace-inactive {
+    display: none;
+}
+
+.pace-progress-inner {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    letter-spacing: -2px;
+    margin: 100px auto;
+
+    & > div {
+        display: inline-block;
+        width: 6px;
+        height: 100%;
+        background-color: $cTeal;
+        margin: 0 2px;
+        @include animation(
+            $name: sk-rect-spinner,
+            $duration: 1.2s,
+            $iteration-count: infinite,
+            $timing-function: ease-in-out
+        );
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+                animation-delay: -1.3s + $i * 0.1s;
+            }
+        }
+    }
+}
+@keyframes sk-rect-spinner {
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.4);
+    }
+    20% {
+        transform: scaleY(1);
+    }
+}
